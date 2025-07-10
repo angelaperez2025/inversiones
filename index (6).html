@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OKX Inversiones</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #0B0C10;
+      color: #FFFFFF;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    header {
+      background-color: #1F2833;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.8rem;
+      color: #66FCF1;
+    }
+    .container {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .section {
+      margin-bottom: 2rem;
+    }
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .stat {
+      background: #1F2833;
+      padding: 1rem;
+      border-radius: 8px;
+      flex: 1 1 200px;
+      text-align: center;
+    }
+    .profile {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .profile img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #66FCF1;
+    }
+    .testimonials {
+      background: #1F2833;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+    .testimonial {
+      display: none;
+      animation: fade 1s ease-in-out;
+    }
+    .testimonial.active {
+      display: block;
+    }
+    @keyframes fade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #1F2833;
+      color: #C5C6C7;
+    }
+  </style>
+</head>
+<body>
+  <header>Especialista oficial de Angela María Ruiz Pérez</header>
+
+  <div style="background:#14191f; padding: 1rem; display: flex; justify-content: space-around; flex-wrap: wrap; font-size: 0.9rem;">
+    <div style="color:#66FCF1;">USDT/COP: <strong>4,045</strong><br>
+      <img src='https://dummyimage.com/140x60/66fcf1/000000&text=USDT+↑' alt='usdt chart'/>
+    </div>
+    <div style="color:#66FCF1;">BTC/COP: <strong>254,110,000</strong><br>
+      <img src='https://dummyimage.com/140x60/fcba03/000000&text=BTC+↑' alt='btc chart'/>
+    </div>
+    <div style="color:#66FCF1;">LTC/COP: <strong>376,000</strong><br>
+      <img src='https://dummyimage.com/140x60/fa8072/000000&text=LTC+↓' alt='ltc chart'/>
+    </div>
+  </div>
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+  <div class="container">
+    <div class="section profile">
+      <img src="https://i.postimg.cc/bJHGzXCP/photo-2025-07-07-23-42-40.jpg" alt="Angela Pérez">
+      <div>
+        <h2>Angela María Ruiz Pérez</h2>
+        <p>Trader profesional desde el 15.03.2020</p>
+        <p>Licencia N° 006373</p>
+        <p>Cédula N° 1.017.201.273</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Estadísticas en Vivo</h2>
+      <div class="stats">
+        <div class="stat"><strong>Volumen de comercio</strong><br><span id="volumen">11387439400</span> COP</div>
+        <div class="stat"><strong>Operaciones exitosas</strong><br><span id="exitosas">11387</span></div>
+        <div class="stat"><strong>Operaciones hoy</strong><br><span id="hoy">22</span></div>
+        <div class="stat"><strong>Pagos realizados</strong><br><span id="pagos">6670</span></div>
+      </div>
+    </div>
+
+    <div class="section testimonials">
+      <h2>Testimonios</h2>
+      <div class="testimonial active"><strong>María Gutierrez:</strong> "Excelente experiencia, gané más de lo esperado."</div>
+      <div class="testimonial"><strong>Juan Rodriguez:</strong> "Muy profesional, rápido y seguro."</div>
+      <div class="testimonial"><strong>Luisa Mendoza:</strong> "Confío totalmente en Angela y su equipo."</div>
+      <div class="testimonial"><strong>Carlos Peña:</strong> "Resultados increíbles en poco tiempo."</div>
+      <div class="testimonial"><strong>Ana Torres:</strong> "Muy recomendable para nuevos inversores."</div>
+      <div class="testimonial"><strong>Diego Fernández:</strong> "Servicio confiable y transparente."</div>
+      <div class="testimonial"><strong>Camila Restrepo:</strong> "Gracias a Angela logré generar ingresos constantes."</div>
+    </div>
+  </div>
+  <footer>© 2025 Plataforma OKX Inversiones</footer>
+
+  <script>
+    function updateStats() {
+      let v = document.getElementById("volumen");
+      let e = document.getElementById("exitosas");
+      let p = document.getElementById("pagos");
+
+      let vol = parseFloat(v.innerText.replace(/,/g, ''));
+let increment = Math.floor(Math.random() * 200000) + 10000;
+vol = Math.max(11387470722, vol + increment);
+v.innerText = vol.toLocaleString();
+      e.innerText = parseInt(e.innerText) + Math.floor(Math.random() * 4 + 1);
+      p.innerText = parseInt(p.innerText) + Math.floor(Math.random() * 3 + 1);
+    }
+
+    setInterval(updateStats, 5000);
+
+    const testimonials = document.querySelectorAll(".testimonial");
+    let index = 0;
+    setInterval(() => {
+      testimonials.forEach(t => t.classList.remove("active"));
+      testimonials[index].classList.add("active");
+      index = (index + 1) % testimonials.length;
+    }, 5000);
+  </script>
+</body>
+</html>
